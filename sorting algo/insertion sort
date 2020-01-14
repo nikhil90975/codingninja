@@ -1,0 +1,3 @@
+//we take a element and swap it until it reaches its right position.the algorithm starts take
+//a single elemnt and picks the next element and places it at its right position.
+
