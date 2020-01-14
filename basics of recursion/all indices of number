@@ -1,0 +1,17 @@
+int allIndexes(int input[], int Size, int x, int output[]) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Save all the indexes in the output array passed and return the size of output array.
+     Taking input and printing output is handled automatically.
+  */static int Count=0;
+    if(Size==-1)
+        return -1;
+    int ans=allIndexes(input,Size-1,x,output);
+    if(input[Size]==x){
+            output[Count] = Size;
+    Count++;
+        }
+
+   return Count;
+
+}
