@@ -2,6 +2,7 @@
 //and then swap the nos. if there is any incorrect order of number,
 //we repeat the step for each index of array.this places the largest number at the end of array.
 //optimisation-:since the largest number is at the end of the array.we dont check it in the next iteration and so on.
+//if we find no swap in any iteration then the array is sorted and we break from the loop.
 
 
 
@@ -14,17 +15,23 @@ int main()
 {
     int n;
     cin>>n;
+    bool issorted=false;
     int* arr=new int[n];
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
     for(int i=0;i<n-1;i++){
-        for(int j=0;j<n-i;j++){
+            issorted=true;
+        for(int j=0;j<n-i-1;j++){
             if(arr[j]>arr[j+1]){
                 int temp=arr[j];
                 arr[j]=arr[j+1];
                 arr[j+1]=temp;
+                issorted=false;
             }
+        }
+        if(issorted){
+            break;
         }
     }
     for(int i=0;i<n;i++){
