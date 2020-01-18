@@ -4,6 +4,9 @@
 //optimisation-:since the largest number is at the end of the array.we dont check it in the next iteration and so on.
 //if we find no swap in any iteration then the array is sorted and we break from the loop.
 
+//Best: O(n) time|O(1) space
+//Average:O(n^2) |O(1) space
+//Worst: O(n^2) time |O(1) space
 
 
 //bubble sort
