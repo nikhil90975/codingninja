@@ -1,6 +1,10 @@
 //we take a element and swap it until it reaches its right position.the algorithm starts take
 //a single elemnt and picks the next element and places it at its right position.
 
+//Best: O(n) time|O(1) space
+//Average:O(n^2) |O(1) space
+//Worst: O(n^2) time |O(1) space
+
 #include<bits/stdc++.h>
 using namespace std;
 
