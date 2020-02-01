@@ -1,0 +1,95 @@
+//in this we first calculate the longest prefix that is also a suffix....
+//it means that we must maintain a array that will contain the information that what pattern 
+//before any character matches previously.
+
+//for example-: 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+//code for lps
+
+int* getlps(string p){
+  int len=p.length();
+  int* lps=new int[len];
+  
+  lps[0]=0;
+  int i=1;
+  int j=0;
+  
+  while(i<len){
+    if(p[i]==p[j]){
+      lps[i]=j+1;
+      i++;
+      j++;
+      }
+    else{
+      if(j!=0){
+      
+      //if pattern doesnot match...go to the place until which it has matched and start matching again
+        j=lps[j-1];
+        }
+      else{
+        lps[i]=0;
+        i++;
+      }
+    }
+  }
+return lps;
+}
+
+
+//code for kmp
+
+bool kmp(string text,string pattern){
+
+    int lentext=text.length();
+    int lenpat=pattern.length();
+    
+    int* lps=getlps(pattern);
+    int i=0;
+    int j=0;
+    
+    while(i<lentext && j<lenpat){
+        if(text[i]==pattern[j]){
+            i++;
+            j++;
+        }
+        else{
+            if(j!=0){
+            //if not match...start matching again until which it has matched
+              j=lps[j-1];
+            }
+            else{
+              i++;
+            }
+        }
+    }
+    if(j==lenpat){
+    return true;
+    }
+ return false;
+ }
+ 
+ int main()
+{
+    string s;
+    string p;
+    cin>>s;
+    cin>>p;
+
+   cout<<kmp(s,p);
+    return 0;
+}
+
+    
+    
+    
+    
+
+
+
+
+
