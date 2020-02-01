@@ -1,0 +1,84 @@
+//Quicksort is a divide and conquer algorithm in which we divide the array on the basis that
+//all elements smaller than the number falls one side and all numbers greater falls on other.
+//in this we make a partition on the above basis.
+
+//Best:    O(nlogn) | O(logn) space
+//Average: O(nlogn) | O(logn) space
+//worst:   O(n^2) | O(logn) space
+
+//the worst time complexity is when:
+  1.the array is ascending or descending
+  2.we pick the smallest or largest element as the pivot.
+  
+Solution 1:
+
+#include<bits/stdc++.h>
+using namespace std;
+int partition(int* arr,int start,int end){
+    int pivot=arr[end];
+    int i=start-1;
+    int j=start;
+    while(j<=end-1){
+        if(arr[j]<pivot){
+            i++;
+            //swap(i,j);
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+            j++;
+        }else
+        j++;
+    }
+    int temp=arr[i+1];
+            arr[i+1]=arr[end];
+            arr[end]=temp;
+    return i+1;
+}
+
+void quicksort(int* arr,int start,int end){
+    if(end>start){
+        int p=partition(arr,start,end);
+        quicksort(arr,start,p-1);
+        quicksort(arr,p+1,end);
+
+    }
+}
+int main(){
+    int n;
+    cin>>n;
+    int* arr=new int[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    quicksort(arr,0,n-1);
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+}
+
+
+
+
+
+Solution-2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
